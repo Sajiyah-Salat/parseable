@@ -1,4 +1,4 @@
-name: Integration tests
+name: Integration & Load tests
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Start compose
-        run: docker-compose up --build --exit-code-from quest
+        run: docker-compose up --build --exit-code-from quest-load
       - name: Stop compose
         if: always()
         run: docker-compose down
